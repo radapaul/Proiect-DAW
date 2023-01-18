@@ -13,6 +13,8 @@ builder.Services.AddDbContext<Context>(options => options.UseSqlServer(builder.C
 
 builder.Services.AddRepositories();
 builder.Services.AddServices();
+builder.Services.AddSeeders();
+builder.Services.AddUtils();
 
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -20,8 +22,15 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 var app = builder.Build();
 SeedData(app);
 
+if (!app.Environment.IsDevelopment())
+{
+  // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
+  app.UseHsts();
+}
 
 app.UseHttpsRedirection();
+app.UseAuthorization();
+
 app.UseStaticFiles();
 app.UseRouting();
 

@@ -16,7 +16,7 @@ namespace Proiect.Models.Base
         // [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public Guid Id { get; set; }
 
-        public DateTime DateCreated { get; set; }
+        public DateTime? DateCreated { get; set; }
 
         public DateTime? DateModified { get; set; }
     }

@@ -18,14 +18,14 @@ namespace Proiect.Controllers
     }
 
     [HttpGet]
-    [Authorization(Role.Admin)]
+    [Authorization(Role.Admin, Role.User)]
     public async Task<IActionResult> GetAll()
     {
       return Ok(await _storeService.GetAllStores());
     }
 
     [HttpPost]
-    [Authorization(Role.Admin)]
+    [Authorization(Role.Admin, Role.User)]
     public async Task<IActionResult> AddStore(StoreDto newStore)
     {
       await this._storeService.AddStore(newStore);
