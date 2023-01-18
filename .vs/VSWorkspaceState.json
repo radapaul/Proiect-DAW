@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\app",
+    "\\src\\app\\core",
+    "\\src\\app\\core\\services",
+    "\\src\\app\\pages",
+    "\\src\\app\\pages\\communication",
+    "\\src\\app\\pages\\communication\\comp1",
+    "\\src\\app\\pages\\communication\\comp2",
+    "\\src\\app\\pages\\communication\\parent"
+  ],
+  "SelectedNode": "\\src\\app\\core\\services\\communication.service.ts",
+  "PreviewInSolutionExplorer": false
+}
