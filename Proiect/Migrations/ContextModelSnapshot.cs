@@ -31,7 +31,7 @@ namespace Proiect.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateModified")
@@ -80,7 +80,7 @@ namespace Proiect.Migrations
                     b.Property<int>("Age")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateModified")
@@ -115,7 +115,7 @@ namespace Proiect.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateModified")
@@ -151,7 +151,7 @@ namespace Proiect.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("DateCreated")
+                    b.Property<DateTime?>("DateCreated")
                         .HasColumnType("datetime2");
 
                     b.Property<DateTime?>("DateModified")

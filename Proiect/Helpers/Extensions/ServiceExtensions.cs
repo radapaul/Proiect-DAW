@@ -1,5 +1,5 @@
 using Demo.Services.CourseService;
-using Proiect.Helpers.JwtUtils;
+using Proiect.Helpers.Jwt;
 using Proiect.Helpers.Seeders;
 using Proiect.Repositories.DatabaseRepository;
 using Proiect.Repositories.EmployeeRepository;
@@ -39,7 +39,7 @@ namespace Proiect.Helpers.Extensions
 
         public static IServiceCollection AddUtils(this IServiceCollection services)
         {
-            services.AddScoped<IJwtUtils, IJwtUtils>();
+            services.AddTransient<IJwtUtils, JwtUtils>();
       return services;
         }
     }

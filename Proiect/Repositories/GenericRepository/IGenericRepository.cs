@@ -2,7 +2,7 @@ using Proiect.Models.Base;
 
 namespace Proiect.Repositories.GenericRepository
 {
-    public interface IGenericRepository<TEntity> where TEntity : BaseEntity
+    public interface IGenericRepository<TEntity> where TEntity : class
     {
         // get all data
         Task<List<TEntity>> GetAllAsync();
@@ -22,7 +22,7 @@ namespace Proiect.Repositories.GenericRepository
         void DeleteRange(IEnumerable<TEntity> entities);
 
         // find 
-        //TEntity FindById(object id);
+        TEntity FindById(object id);
         Task<TEntity> FindByIdAsync(object id);
 
         // save

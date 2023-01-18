@@ -5,7 +5,7 @@ using System.Data.SqlClient;
 
 namespace Proiect.Repositories.GenericRepository
 {
-    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : BaseEntity
+    public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
         protected readonly Context _context;
         protected readonly DbSet<TEntity> _table;
@@ -14,6 +14,11 @@ namespace Proiect.Repositories.GenericRepository
         {
             _context = context;
             _table = _context.Set<TEntity>();
+        }
+
+        public TEntity? FindById(object id)
+        {
+          return _table.Find(id);
         }
 
         public async Task<List<TEntity>> GetAllAsync()

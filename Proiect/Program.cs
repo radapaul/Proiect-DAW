@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Proiect.Helpers.Extensions;
 using Proiect.Helpers;
 using Proiect.Helpers.Seeders;
+using Proiect.Helpers.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -30,6 +31,7 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseAuthorization();
+app.UseMiddleware<JwtMiddleware>();
 
 app.UseStaticFiles();
 app.UseRouting();
@@ -49,6 +51,6 @@ void SeedData(IHost app)
   using (var scope = scopedFactory.CreateScope())
   {
     var service = scope.ServiceProvider.GetService<EmployeesSeeder>();
-    service.SeedInitialStudents();
+    service.SeedInitialEmployees();
   }
 }

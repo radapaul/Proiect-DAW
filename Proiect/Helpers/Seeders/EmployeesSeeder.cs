@@ -12,7 +12,7 @@ namespace Proiect.Helpers.Seeders
       _Context = Context;
     }
 
-    public void SeedInitialStudents()
+    public void SeedInitialEmployees()
     {
       if (!_Context.Employees.Any())
       {

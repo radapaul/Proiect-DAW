@@ -1,7 +1,7 @@
 using AutoMapper;
 using Proiect.Models;
 using Proiect.Models.Enums;
-using Proiect.Helpers.JwtUtils;
+using Proiect.Helpers.Jwt;
 using Proiect.Repositories.OwnerRepository;
 using Proiect.Models.DTOs.OwnerAuthResponseDto;
 using BCryptNet = BCrypt.Net.BCrypt;
@@ -49,5 +49,9 @@ namespace Proiect.Services.OwnerService
       return await _ownerRepository.GetAllAsync();
     }
 
+    public Owner GetById(Guid id)
+    {
+      return _ownerRepository.FindById(id);
+    }
   }
 }
