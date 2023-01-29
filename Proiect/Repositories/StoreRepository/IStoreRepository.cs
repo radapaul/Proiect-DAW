@@ -7,5 +7,9 @@ namespace Proiect.Repositories.StoreRepository
   {
     public Store FindByName(string name);
 
+    public Task<List<Store>> StoresByStar(int star);
+
+    public List<Store> StoresByStarGroupBy(int star);
+
   }
 }

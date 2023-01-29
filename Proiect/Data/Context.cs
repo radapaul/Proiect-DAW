@@ -48,7 +48,14 @@ namespace Proiect.Data
                   .HasMany(b => b.EmployeesStores)
                   .WithOne(c => c.Employee);
 
+      modelBuilder.AddConfigurations();
       base.OnModelCreating(modelBuilder);
+    }
+
+    public override int SaveChanges()
+    {
+      ChangeTracker.ManageEntityStates();
+      return base.SaveChanges();
     }
 
   }

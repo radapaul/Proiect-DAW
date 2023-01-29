@@ -14,25 +14,29 @@ namespace Proiect.Repositories.DatabaseRepository
 
     public Store GetByStars(int number)
     {
-      return _table.FirstOrDefault(x => x.Stars > number);
+      return _table.FirstOrDefault(x => x.Stars >= number);
     }
     public async Task<Store> GetByStarsAsync(int number)
     {
-      return await _table.FirstOrDefaultAsync(x => x.Stars > number);
+      return await _table.FirstOrDefaultAsync(x => x.Stars >= number);
     }
 
+    //include
     public async Task<List<Store>> GetAllWithInclude()
     {
       return await _table.Include(x => x.EmployeesStores).ToListAsync();
     }
 
-    public Store WhereWithLinqQuerySyntax(int star)
-    {
-      var result = from Store in _table
-                   where Store.Stars == star
-                   select Store;
 
-      return result.FirstOrDefault();
+    //join
+    public async Task<List<Store>> GetAllWithJoin()
+    {
+      var result = _table.Join(_context.Owners, store => store.Id, owner => owner.Id,
+          (store, owner) => new { store, owner }).Select(x => x.store);
+      return await result.ToListAsync();
     }
+
+
+
   }
 }
