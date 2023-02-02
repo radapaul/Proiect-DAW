@@ -7,6 +7,7 @@ import { MatCardModule } from '@angular/material/card';
 })
 export class CommunicationComponent implements OnInit, OnDestroy, OnChanges, MatCardModule {
   public title: string = " Main component";
+  public counter: number = 0;
 
   constructor() {
     let div = document.getElementById("firstDiv");
@@ -22,5 +23,8 @@ export class CommunicationComponent implements OnInit, OnDestroy, OnChanges, Mat
   ngOnInit(): void {
     let div = document.getElementById("firstDiv");
     console.log("ngOnInit div: ", div)
+  }
+  clickEvent() {
+    this.counter++;
   }
 }

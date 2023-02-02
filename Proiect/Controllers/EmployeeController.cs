@@ -18,13 +18,19 @@ namespace Proiect.Controllers
       _employeeService = employeeService;
     }
 
-    [HttpGet]
+    [HttpGet()]
     public IActionResult GetAllEmployees()
     {
       return Ok(_employeeService.GetAllEmployees());
     }
 
-    [HttpDelete("{employeeId}")]
+    [HttpGet("byid/{id}")]
+    public IActionResult FindById(Guid id)
+    {
+        return Ok(_employeeService.FindById(id));
+    }
+
+        [HttpDelete("{employeeId}")]
     [Authorization(Role.Admin)]
     public async Task<IActionResult> DeleteEmployee([FromRoute] Guid employeeId)
     {

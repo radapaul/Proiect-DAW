@@ -5,11 +5,15 @@ import { CommunicationComponent } from './communication.component';
 import { ParentComponent } from './parent/parent.component';
 import { ChildComponent } from './child/child.component';
 import { Comp1Component } from './comp1/comp1.component';
-import { Comp2Component } from './comp2/comp2.component';
+import { EmployeeComponent } from './employee/employee.component';
 import { CommunicationRoutingModule } from './communication-routing.module';
 
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -18,13 +22,17 @@ import { MatDividerModule } from '@angular/material/divider';
     ParentComponent,
     ChildComponent,
     Comp1Component,
-    Comp2Component
+    EmployeeComponent
   ],
   imports: [
     CommonModule,
     CommunicationRoutingModule,
     MatCardModule,
-    MatDividerModule
+    MatDividerModule,
+    MatButtonModule,
+    MatListModule,
+    MatInputModule,
+    FormsModule
   ]
 })
 export class CommunicationModule { }
